@@ -3,7 +3,9 @@ import cors from "cors";
 import express from "express";
 import helmet from "helmet";
 import { errorHandler } from "@/common/http";
+import { authRouter } from "@/modules/auth/routes";
 import { healthRouter } from "@/modules/health/routes";
+import { walletRouter } from "@/modules/wallet/routes";
 
 export const app = express();
 
@@ -13,6 +15,8 @@ app.use(compression());
 app.use(express.json());
 
 app.use("/api/v1", healthRouter);
+app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/wallet", walletRouter);
 
 
 app.use(errorHandler);
