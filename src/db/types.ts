@@ -15,7 +15,7 @@ export type UserRecord = {
 export type WalletAccountRecord = {
   id: string;
   user_id: string;
-  balance: string;
+  balance_units: string | number
   created_at: Date;
   updated_at: Date;
 };
@@ -29,9 +29,9 @@ export type WalletTransactionRecord = {
   wallet_account_id: string;
   user_id: string;
   type: TransactionType;
-  amount: string;
-  balance_before: string;
-  balance_after: string;
+  amount_units: string | number;
+  balance_before_units: string | number;
+  balance_after_units: string | number;
   reference: string;
   related_user_id: string | null;
   narration: string;

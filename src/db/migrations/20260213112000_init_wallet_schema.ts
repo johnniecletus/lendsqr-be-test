@@ -14,7 +14,7 @@ export async function up(knex: Knex): Promise<void> {
   await knex.schema.createTable("wallet_accounts", (table) => {
     table.string("id", 36).primary();
     table.string("user_id", 36).notNullable().unique();
-    table.decimal("balance", 19, 2).notNullable().defaultTo(0);
+    table.bigInteger("balance_units").notNullable().defaultTo(0);
     table.timestamp("created_at").notNullable().defaultTo(knex.fn.now());
     table.timestamp("updated_at").notNullable().defaultTo(knex.fn.now());
 
@@ -31,9 +31,9 @@ export async function up(knex: Knex): Promise<void> {
     table.string("wallet_account_id", 36).notNullable();
     table.string("user_id", 36).notNullable();
     table.string("type", 32).notNullable();
-    table.decimal("amount", 19, 2).notNullable();
-    table.decimal("balance_before", 19, 2).notNullable();
-    table.decimal("balance_after", 19, 2).notNullable();
+    table.bigInteger("amount_units").notNullable();
+    table.bigInteger("balance_before_units").notNullable();
+    table.bigInteger("balance_after_units").notNullable();
     table.string("reference", 120).notNullable().index();
     table.string("related_user_id", 36).nullable();
     table.string("narration", 255).notNullable();
