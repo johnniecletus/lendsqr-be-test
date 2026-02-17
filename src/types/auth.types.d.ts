@@ -1,4 +1,6 @@
 import { knex } from "knex";
+import { UserRepository } from "@/modules/auth/repository";
+import { WalletRepository } from "@/modules/wallet/repository";
 
 export type PublicUser = {
   id: string;
