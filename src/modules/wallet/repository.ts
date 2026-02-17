@@ -131,7 +131,7 @@ export function createWalletRepository(db: Knex): WalletRepository {
     await conn("wallet_accounts")
       .where({ id: accountId })
       .update({
-        balance_units: newBalanceUnits.toString(), // mysql2 safe
+        balance_units: newBalanceUnits.toString(), 
         updated_at: conn.fn.now(),
       });
   };

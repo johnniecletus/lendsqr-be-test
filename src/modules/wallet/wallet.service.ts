@@ -189,7 +189,7 @@ export function createWalletService({
   const listTransactions = async (userId: string, limit = 20) => {
     const txs = await transactions.listByUserId(userId, limit);
 
-    // Convert to "naira" strings at the boundary (API layer)
+ 
     return txs.map((t) => ({
       ...t,
       amount: formatUnitsToAmount(t.amountUnits),
