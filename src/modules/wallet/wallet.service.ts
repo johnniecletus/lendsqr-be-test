@@ -189,16 +189,17 @@ export function createWalletService({
   const listTransactions = async (userId: string, limit = 20) => {
     const txs = await transactions.listByUserId(userId, limit);
 
-    return txs.map((t) => {
-      const { amountUnits, balanceBeforeUnits, balanceAfterUnits, ...rest } = t;
-
-      return {
-        ...rest,
-        amount: formatUnitsToAmount(amountUnits),
-        balanceBefore: formatUnitsToAmount(balanceBeforeUnits),
-        balanceAfter: formatUnitsToAmount(balanceAfterUnits),
-      };
-    });
+    return txs.map((t) => ({
+      id: t.id,
+      type: t.type,
+      reference: t.reference,
+      relatedUserId: t.relatedUserId,
+      narration: t.narration,
+      createdAt: t.createdAt,
+      amount: formatUnitsToAmount(t.amountUnits),
+      balanceBefore: formatUnitsToAmount(t.balanceBeforeUnits),
+      balanceAfter: formatUnitsToAmount(t.balanceAfterUnits),
+    }));
   };
 
   return {
