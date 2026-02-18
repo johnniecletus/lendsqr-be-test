@@ -5,11 +5,6 @@ import { createAuthService } from "../../src/modules/auth/auth.service";
 import type { UserRepository } from "../../src/modules/auth/repository";
 import type { WalletRepository } from "../../src/modules/wallet/repository";
 
-const mockIsBlacklisted = jest.mocked(isBlacklisted);
-const mockHashPassword = jest.mocked(hashPassword);
-const mockComparePassword = jest.mocked(comparePassword);
-const mockSignJWT = jest.mocked(signJWT);
-
 jest.mock("../../src/modules/auth/karma.client", () => ({
   isBlacklisted: jest.fn(),
 }));
@@ -29,6 +24,11 @@ import {
   comparePassword,
 } from "../../src/modules/auth/password.service";
 import { signJWT } from "../../src/modules/auth/token.service";
+
+const mockIsBlacklisted = jest.mocked(isBlacklisted);
+const mockHashPassword = jest.mocked(hashPassword);
+const mockComparePassword = jest.mocked(comparePassword);
+const mockSignJWT = jest.mocked(signJWT);
 
 function makeFakeDb(): Knex {
   return {
