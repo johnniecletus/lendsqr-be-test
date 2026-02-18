@@ -13,9 +13,6 @@
     "test": "jest --runInBand",
     "test:coverage": "jest --coverage --runInBand"
   },
-  "engines": {
-    "node": "20.x"
-  },
   "keywords": [
     "nodejs",
     "typescript",
