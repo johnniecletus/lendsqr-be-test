@@ -129,6 +129,17 @@ POST /api/v1/auth/signup
 }
 ```
 
+### Login
+
+```http
+POST /api/v1/auth/login
+
+{
+  "email": "user1@example.com",
+  "password": "StrongPass123"
+}
+```
+
 ### Fund Wallet
 
 ```http
@@ -150,6 +161,29 @@ POST /api/v1/wallet/transfer
  "amount": "1200.00",
   "narration": "Repayment"
 }
+```
+### Withdraw
+
+```http
+POST /api/v1/wallet/withdraw
+
+{
+  "amount": "3500.00",
+  "narration": "First withdrawal"
+}
+```
+
+### Balance
+
+```http
+GET /api/v1/wallet/balance
+
+```
+### Transactions
+
+```http
+GET /api/v1/wallet/balance
+
 ```
 
 ## 7. Environment Variables
