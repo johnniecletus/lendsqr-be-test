@@ -127,7 +127,12 @@ function createWalletService({ db, wallets, transactions, }) {
     const listTransactions = async (userId, limit = 20) => {
         const txs = await transactions.listByUserId(userId, limit);
         return txs.map((t) => ({
-            ...t,
+            id: t.id,
+            type: t.type,
+            reference: t.reference,
+            relatedUserId: t.relatedUserId,
+            narration: t.narration,
+            createdAt: t.createdAt,
             amount: (0, money_1.formatUnitsToAmount)(t.amountUnits),
             balanceBefore: (0, money_1.formatUnitsToAmount)(t.balanceBeforeUnits),
             balanceAfter: (0, money_1.formatUnitsToAmount)(t.balanceAfterUnits),

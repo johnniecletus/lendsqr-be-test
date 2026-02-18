@@ -24,18 +24,15 @@ export declare function createWalletService({ db, wallets, transactions, }: Wall
         senderBalance: string;
     }>;
     listTransactions: (userId: string, limit?: number) => Promise<{
-        amount: string;
-        balanceBefore: string;
-        balanceAfter: string;
         id: string;
         type: "funding" | "withdrawal" | "transfer_debit" | "transfer_credit";
-        amountUnits: bigint;
-        balanceBeforeUnits: bigint;
-        balanceAfterUnits: bigint;
         reference: string;
         relatedUserId: string | null;
         narration: string;
         createdAt: Date;
+        amount: string;
+        balanceBefore: string;
+        balanceAfter: string;
     }[]>;
 };
 export {};
