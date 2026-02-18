@@ -1,4 +1,4 @@
-import { app } from "@/app";
+import app from "./app";
 import { env } from "@/config/env";
 import { db } from "@/db/knex";
 import { logger } from "@/lib/logger";

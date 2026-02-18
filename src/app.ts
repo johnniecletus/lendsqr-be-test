@@ -8,7 +8,7 @@ import { authRouter } from "@/modules/auth/routes";
 import { healthRouter } from "@/modules/health/routes";
 import { walletRouter } from "@/modules/wallet/routes";
 
-export const app = express();
+const app = express();
 
 app.use(helmet());
 app.use(cors({
@@ -24,3 +24,5 @@ app.use("/api/v1/wallet", walletRouter);
 
 
 app.use(errorHandler);
+
+export default app;
